@@ -149,7 +149,7 @@ class WLEDClient extends IsomorphicEventEmitter {
    * @param {any} options
    * @returns
    */
-  private async fetch(uri: string, options?: any) {
+  private async exec(uri: string, options?: any) {
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), this.timeout);
     const response = await fetch(uri, {
@@ -182,7 +182,7 @@ class WLEDClient extends IsomorphicEventEmitter {
    * @returns {object} data
    */
   async getInfo() {
-    const response = await this.fetch(`${this.endpoint}/info`, {
+    const response = await this.exec(`${this.endpoint}/info`, {
       timeout: this.timeout,
     }).then(this.handleErrors);
     const data = await response.json();
@@ -196,7 +196,7 @@ class WLEDClient extends IsomorphicEventEmitter {
    * @returns {object} data
    */
   async getState() {
-    const response = await this.fetch(`${this.endpoint}/state`, {
+    const response = await this.exec(`${this.endpoint}/state`, {
       timeout: this.timeout,
     }).then(this.handleErrors);
     const data = await response.json();
@@ -210,7 +210,7 @@ class WLEDClient extends IsomorphicEventEmitter {
    * @returns {object} data
    */
   async getPresets() {
-    const response = await this.fetch(`${this.endpoint}/presets`, {
+    const response = await this.exec(`${this.endpoint}/presets`, {
       timeout: this.timeout,
     }).then(this.handleErrors);
     const data = await response.json();
@@ -224,7 +224,7 @@ class WLEDClient extends IsomorphicEventEmitter {
    * @returns {object} data
    */
   async getConfig() {
-    const response = await this.fetch(`${this.endpoint}/cfg`, {
+    const response = await this.exec(`${this.endpoint}/cfg`, {
       timeout: this.timeout,
     }).then(this.handleErrors);
     const data = await response.json();
