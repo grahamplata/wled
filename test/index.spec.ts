@@ -18,7 +18,6 @@ describe('WLED Client', () => {
 
     it('should accept object input', () => {
       const wled = new WLEDClient({ host: '127.0.0.1' });
-      console.log(wled.endpoint);
       expect(wled.endpoint).toBe('http://127.0.0.1/json');
     });
 
