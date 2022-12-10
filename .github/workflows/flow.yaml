@@ -1,4 +1,4 @@
-name: Node Workflow
+name: Node WLED Client Build Workflow
 run-name: ${{ github.actor }} Wled Client Run
 
 on:
